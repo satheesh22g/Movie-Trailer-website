@@ -1,0 +1,326 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>MOVIE TRAILERS</title>
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    
+<style>
+                
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 740px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            padding:20px;
+            padding-bottom:20px;
+            padding-top:20px;
+            
+            }
+   
+        .fader
+        {
+          width:250px;
+          height:350px;
+          
+          }
+        .movie-tile:hover {
+            bottom:2%;
+            background-color:red;
+            cursor:hand;
+            opacity: 100;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: 2px solid blue;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: yellow;
+            
+        }
+        .mainhead {
+            display : flex;
+            background-image:url("https://media.giphy.com/media/BlOY9MQiFKqIg/giphy.gif");
+            }
+        .head-title {
+            background-image:url("https://media.giphy.com/media/BlOY9MQiFKqIg/giphy.gif");
+            padding-left:40px;
+            }
+            
+        .navbar-header
+        {    
+             
+             background-repeat:no repeat center;
+             text-align: center;
+             
+}
+        .center {
+             padding-bottom:10px;
+        }
+    .movie-block
+    {
+        padding-top:200px;
+        height:100%;
+    }
+    .textblock
+    {
+        height:20%;
+    }
+ 
+    .imageblock:hover
+    {
+        top:20%;
+    }
+
+ 
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <body style="background:url('https://www.pixelero.com.mx/wp-content/uploads/2018/06/pixelero-disen%CC%83o-grafico.jpg')">
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="head-title navbar-fixed-top">
+    
+    <a class="mainhead" href="#" style="font-size:60px;font-family:Comic Sans MS;">
+            <img src="https://image.roku.com/developer_channels/prod/0ceef044f704675c25fb7cbf48e0e8420cf62a96715dbc55b134d6ea58eb3e52.png" width="75px" height="75px" class="center">
+            Movie Trailers</a>
+           
+     <div class="navbar navbar-inverse navbar-fixed" role="navigation">
+        <div class="container">
+          <div class="col-md-12 navbar-header">
+                     <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" >MENU</a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+        <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">About</a></li>
+            
+            
+        </ul>
+
+        <div class="col-sm-3 col-md-3 pull-right">
+        <form class="navbar-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+        </div><!--end-->
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container movie-block">
+      
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="oXGm9Vlfx4w" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://images-na.ssl-images-amazon.com/images/I/A1X%2Bu9vdXtL._SY445_.jpg" class="fader">
+  <p style="text-align:right">2.30</p>
+              </div>
+              
+    <div class="textblock"><h2 >Man Who Know infinity</h2>
+    <p> Biography , Drama</p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="QWbMckU3AOQ" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://i.ytimg.com/vi/4MzAJpcLJoo/maxresdefault.jpg" class="fader">
+  <p style="text-align:right">2.10</p>
+              </div>
+              
+    <div class="textblock"><h2 >x-men</h2>
+    <p>Sci-Fi , Adventure</p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="tg52up16eq0" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://i.ytimg.com/vi/yrnPdJsMg2c/maxresdefault.jpg" class="fader">
+  <p style="text-align:right">2.43</p>
+              </div>
+              
+    <div class="textblock"><h2 >Spiderman into the spider verse</h2>
+    <p>Action, Adventure, Fantasy</p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="ZVzL94jZNdU" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://upload.wikimedia.org/wikipedia/en/1/13/Storks_%28film%29_poster_2.jpg" class="fader">
+  <p style="text-align:right">1.00</p>
+              </div>
+              
+    <div class="textblock"><h2 >storkes</h2>
+    <p>Animation , Action , Adventure</p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="hA6hldpSTF8" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://cdn1-www.superherohype.com/assets/uploads/2018/12/avengers-endgame-logo.jpg" class="fader">
+  <p style="text-align:right">2.48</p>
+              </div>
+              
+    <div class="textblock"><h2 >Avengers Endgame</h2>
+    <p>Action, Adventure, Fantasy</p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="-KfsY-qwBS0" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://m.media-amazon.com/images/M/MV5BNDIwMDYxY2UtM2NhYy00NzkwLThhNDYtY2IxZGZhNjYyNmM2XkEyXkFqcGdeQXVyNDY5MTUyNjU@._V1_QL50_SY1000_CR0,0,743,1000_AL_.jpg" class="fader">
+  <p style="text-align:right">2.48</p>
+              </div>
+              
+    <div class="textblock"><h2 >KGF Chapter 1</h2>
+    <p>Action, Drama </p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="iWJ4wWefVsQ" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://m.media-amazon.com/images/M/MV5BZDUxZWRiNDAtM2M4Yi00OTY4LTgyNmMtNTIzOGMwNTFiYjg0XkEyXkFqcGdeQXVyNjE1OTQ0NjA@._V1_QL50_SY1000_CR0,0,628,1000_AL_.jpg" class="fader">
+  <p style="text-align:right">2.24</p>
+              </div>
+              
+    <div class="textblock"><h2 >URI: The Surgical Strike</h2>
+    <p>Action</p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="Ru4lEmhHTF4" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://m.media-amazon.com/images/M/MV5BNzg5YjA4ZTgtZGI3MC00ODVkLTliYmEtOWQ1NTY1ODg0ZjU1XkEyXkFqcGdeQXVyNzI5NjYzODI@._V1_QL50_.jpg" class="fader">
+  <p style="text-align:right">3.08</p>
+              </div>
+              
+    <div class="textblock"><h2 >Zero</h2>
+    <p>Comedy, Drama, Romance</p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="dNMe5oRfsCE" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://175732-509225-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2018/10/Aravinda-Sametha-Trailer.jpg" class="fader">
+  <p style="text-align:right">2.10</p>
+              </div>
+              
+    <div class="textblock"><h2 >aravinda sametha</h2>
+    <p>Action ,Entertainer</p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="Ia6EXfqKiV4" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://c.saavncdn.com/657/Adiga-Adiga-From-Ninnu-Kori--Telugu-2017-500x500.jpg" class="fader">
+  <p style="text-align:right">2.00</p>
+              </div>
+              
+    <div class="textblock"><h2 >Ninnu Kori</h2>
+    <p>Comedy ,Romance</p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="IkLz6dhHmOQ" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://m.media-amazon.com/images/M/MV5BZjAzYTkxMDQtMGFhZS00NzRjLTk1MmQtMzM0YjUyZDA5NTQ1XkEyXkFqcGdeQXVyNjY1MzUzNTQ@._V1_SY1000_CR0,0,714,1000_AL_.jpg" class="fader">
+  <p style="text-align:right">1.56</p>
+              </div>
+              
+    <div class="textblock"><h2 >Padi Padi Leche Manasu</h2>
+    <p> Drama, Romance </p></div>
+               
+   
+ </div>
+
+<div class="col-md-5 col-lg-3 movie-tile text-center poster container" data-trailer-youtube-id="V-8GGhn0oDk" data-toggle="modal" data-target="#trailer">
+  <div class ="imageblock"> <img src="https://m.media-amazon.com/images/M/MV5BOWQwNWRlNmUtY2FkZC00YmQ3LTlkNzUtOTUyZmExMDNkYjE2XkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_QL50_SY1000_CR0,0,660,1000_AL_.jpg" class="fader">
+  <p style="text-align:right">2.08</p>
+              </div>
+              
+    <div class="textblock"><h2 >Goodachari</h2>
+    <p>Action, Thriller</p></div>
+               
+   
+ </div>
+
+    </div>
+  </body>
+</html>
