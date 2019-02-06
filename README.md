@@ -16,7 +16,3 @@ This information is displayed on a web page and allow users to review the movies
 ## To run this program
 
 download the project, Run the ```entertainment.py``` program in python.
-
-## output
-
-![alt text](http://url/to/output.png)
